@@ -66,6 +66,7 @@ as.integer(a5[1, 1])
 Replacing the missing values (NAs) with an approximation. The total number of NAs: 
 ```{r, echo = TRUE}
 nas <- length(a$steps[is.na(a$steps)])
+nas
 ```
 
 The NAs are replaced by median of daily total steps for this interval across all days.  

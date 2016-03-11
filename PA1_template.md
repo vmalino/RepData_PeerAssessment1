@@ -84,6 +84,11 @@ Replacing the missing values (NAs) with an approximation. The total number of NA
 
 ```r
 nas <- length(a$steps[is.na(a$steps)])
+nas
+```
+
+```
+## [1] 2304
 ```
 
 The NAs are replaced by median of daily total steps for this interval across all days.  

@@ -163,7 +163,9 @@ abline(v = as.integer(a5[1, 1]), lwd = 2, col = &quot;red&quot;)</code></pre>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
 <p>Replacing the missing values (NAs) with an approximation. The total number of NAs:</p>
-<pre class="r"><code>nas &lt;- length(a$steps[is.na(a$steps)])</code></pre>
+<pre class="r"><code>nas &lt;- length(a$steps[is.na(a$steps)])
+nas</code></pre>
+<pre><code>## [1] 2304</code></pre>
 <p>The NAs are replaced by median of daily total steps for this interval across all days.</p>
 <pre class="r"><code># Calculate replacments for NAs
 a6 &lt;- a %&gt;% group_by(interval) %&gt;% summarise(steps = median(steps, na.rm = TRUE))
