@@ -184,3 +184,9 @@ mtext("weekends", side = 4, outer = FALSE)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)
+
+The noted differences between weekdays and weekends patterns:
+
+* The weekday pattern has higher peek activity somewhere in the morning
+
+* The weekend pattern has lower peek, but more evenly distributed activity alond the day
