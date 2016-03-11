@@ -126,6 +126,7 @@ $(document).ready(function () {
 <h2>Loading and preprocessing the data</h2>
 <p>Getting data (the data file is assumed to be in the working directory)</p>
 <pre class="r"><code>a &lt;- read.csv(&quot;activity.csv&quot;, na.strings = &quot;NA&quot;)
+a$date &lt;- as.Date(a$date)
 suppressMessages(require(dplyr)) # The package to process data</code></pre>
 </div>
 <div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
@@ -198,7 +199,7 @@ suppressMessages(curr_locale &lt;- Sys.getlocale(&quot;LC_TIME&quot;))
 suppressMessages(Sys.setlocale(&quot;LC_TIME&quot;,&quot;C&quot;))</code></pre>
 <pre><code>## [1] &quot;C&quot;</code></pre>
 <pre class="r"><code># Add a weekday column
-am &lt;- am %&gt;% mutate(day = weekdays(as.Date(date)))
+am &lt;- am %&gt;% mutate(day = weekdays(date))
 # Convert weekday to weekend/weekday factor
 am$day &lt;- sapply(am$day, function(x) {
     if (x %in% c(&quot;Saturday&quot;, &quot;Sunday&quot;)) {&quot;weekend&quot;} else {&quot;weekday&quot;}

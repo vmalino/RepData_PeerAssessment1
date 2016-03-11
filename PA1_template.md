@@ -17,6 +17,7 @@ Getting data (the data file is assumed to be in the working directory)
 
 ```r
 a <- read.csv("activity.csv", na.strings = "NA")
+a$date <- as.Date(a$date)
 suppressMessages(require(dplyr)) # The package to process data
 ```
 
@@ -155,7 +156,7 @@ suppressMessages(Sys.setlocale("LC_TIME","C"))
 
 ```r
 # Add a weekday column
-am <- am %>% mutate(day = weekdays(as.Date(date)))
+am <- am %>% mutate(day = weekdays(date))
 # Convert weekday to weekend/weekday factor
 am$day <- sapply(am$day, function(x) {
     if (x %in% c("Saturday", "Sunday")) {"weekend"} else {"weekday"}
